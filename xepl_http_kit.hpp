@@ -22,50 +22,7 @@
  	https://www.gnu.org/licenses/agpl-3.0.html
 */
 
-namespace KITS::HTTP
-{
-	void Keyword_HttpServer ( XEPL::Cortex* _cortex );
-	void Register_Http_Kit  ( XEPL::Cortex* _cortex );
-}
-
-namespace KITS::HTTP
-{
-	class Http;
-
-	typedef void ( Http::*HttpScanner ) ( void  );
-
-	class Http : public XEPL::Senson
-	{
-		virtual void Senson_Closed  ( void ) override;
-		virtual void Senson_Scan    ( void ) override;
-		virtual void Http_Deliver   ( void ) = 0;
-		void Header          ( XEPL::Cord*, XEPL::String* );
-		void Method_Deliver  ( XEPL::Gene*, XEPL::Gene*   );
-		void Scan            ( HttpScanner );
-		void Scan_Payload    ( void );
-	protected:
-		HttpScanner    http_scanner;
-		XEPL::Gene*    message_gene;
-		XEPL::Axon*    request_axon;
-		XEPL::Axon*    response_axon;
-		XEPL::Axon*    closed_axon;
-		size_t         payload_length;
-		virtual ~Http ( void ) override;
-	public:
-		explicit Http ( XEPL::Neuron*, XEPL::Gene* );
-		void Do_Next      ( HttpScanner );
-		void Scan_Header  ( void );
-	};
-
-	class HttpServer : public Http
-	{
-		virtual void Http_Deliver( void ) override;
-		void Scan_Request_Line   ( void );
-		void Method_Respond      ( XEPL::Gene*, XEPL::Gene* );
-	public:
-		explicit HttpServer( XEPL::Neuron*, XEPL::Gene* );
-	};
-}
+#include "xepl_http_kit.h"
 
 KITS::HTTP::Http::~Http()
 {

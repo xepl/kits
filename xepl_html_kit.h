@@ -1,9 +1,9 @@
 // SPDX: AGPL-3.0-only
 /* XEPL Operating Environment - Copyright (c) 2024 Keith Edwin Robbins
 	Project Name: XEPL Operating Environment
-	File Name:    xepl_splicer_kit.hpp
+	File Name:    xepl_html_kit.h
 	Author:       Keith Edwin Robbins
-	Release date: May 10, 2024
+	Release date: May 20, 2024
 	Website:      https://xepl.com
 
 	This program is free software: you can redistribute it and/or modify
@@ -22,41 +22,26 @@
  	https://www.gnu.org/licenses/agpl-3.0.html
 */
 
-#include "xepl_splicer_kit.h"
-
-void KITS::SPLICERS::Splicer_Get ( XEPL::Cortex* _cortex )
+namespace KITS::HTML
 {
-	_cortex->Register_Operator ( "Get", [] ( XEPL::Script* _script, XEPL::Cord* _rhs )
-	{
-		if ( !_rhs )
-			return;
+	void Scribble ( XEPL::Nucleus* _nucleus, XEPL::Gene* _gene, XEPL::Rendon* _rendon );
+	void Output   ( XEPL::Nucleus* _nucleus, XEPL::Gene* _gene, XEPL::Rendon* _rendon );
 
-		if ( auto found_gene = _script->gene->Get_First( _rhs->c_str() ) )
-			_script->gene = found_gene;
-	} );
+	void Keyword_Html ( XEPL::Cortex* _cortex );
+
+	void Register_Html_Kit( XEPL::Cortex* _cortex );
 }
 
-void KITS::SPLICERS::Splicer_Set ( XEPL::Cortex* _cortex )
+namespace KITS::HTML
 {
-	_cortex->Register_Operator ( "Set", [] ( XEPL::Script* _script, XEPL::Cord* _rhs )
+	class RendonHtml : public XEPL::Rendon
 	{
-		if ( !_script->gene )
-			return;
-
-		if ( !_rhs )
-			return;
-
-		auto& ephemerals = XEPL::tlsLobe->ephemerals;
-
-		if ( !ephemerals )
-			ephemerals = new XEPL::Ephemerals();
-
-		ephemerals->Set ( _rhs, _script->gene );
-	} );
-}
-
-void KITS::SPLICERS::Register_Splicer_Kit( XEPL::Cortex* _cortex )
-{
-	Splicer_Set         ( _cortex );
-	Splicer_Get         ( _cortex );
+	public:
+		explicit RendonHtml        ( XEPL::Neuron*,  XEPL::Gene*, XEPL::String* );
+		virtual void Rendon_Markup ( XEPL::Gene*,    XEPL::Gene* ) override;
+		virtual void Rendon_Render ( XEPL::Nucleus*, XEPL::Gene* ) override;
+		void Scribble_Traits       ( XEPL::Nucleus*, XEPL::Gene* );
+		void Scribble_Content      ( XEPL::Nucleus*, XEPL::Gene* );
+		void Scribble_Gene         ( XEPL::Nucleus*, XEPL::Gene* );
+	};
 }

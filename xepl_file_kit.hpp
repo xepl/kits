@@ -21,20 +21,8 @@
 	For more information about the AGPL, please visit:
  	https://www.gnu.org/licenses/agpl-3.0.html
 */
-namespace KITS::FILES
-{
-	bool String_Into_File ( XEPL::Cord* _name_cord, XEPL::Cord* _contents_cord );
-	bool File_Load_String ( XEPL::Cord* _cord, std::string& std_output_string );
-	bool File_Load_String ( XEPL::Cord* _cord, XEPL::String* _string );
-	bool File_Load_Gene   ( XEPL::Cord* _filename_cord, XEPL::Gene** _gene );
 
-	void Keyword_FileWrite ( XEPL::Cortex* _cortex );
-	void Keyword_FileRead  ( XEPL::Cortex* _cortex );
-	void Keyword_Include   ( XEPL::Cortex* _cortex );
-	void Keyword_Command   ( XEPL::Cortex* _cortex );
-
-	void Register_File_Kit( XEPL::Cortex* _cortex );
-}
+#include "xepl_file_kit.h"
 
 bool KITS::FILES::String_Into_File ( XEPL::Cord* _name_cord, XEPL::Cord* _contents_cord )
 {

@@ -24,37 +24,7 @@
 
 #include <algorithm>
 
-namespace KITS::KEYWORDS
-{
-	void Keyword_Axons      ( XEPL::Cortex* _cortex );
-	void Keyword_Forms      ( XEPL::Cortex* _cortex );
-	void Keyword_Genes      ( XEPL::Cortex* _cortex );
-	void Keyword_Lobe       ( XEPL::Cortex* _cortex );
-	void Keyword_Macros     ( XEPL::Cortex* _cortex );
-	void Keyword_Methods    ( XEPL::Cortex* _cortex );
-	void Keyword_Neuron     ( XEPL::Cortex* _cortex );
-	void Keyword_Properties ( XEPL::Cortex* _cortex );
-	void Keyword_Synapses   ( XEPL::Cortex* _cortex );
-
-	void Keyword_Index      ( XEPL::Cortex* _cortex );
-	void Keyword_New        ( XEPL::Cortex* _cortex );
-	void Keyword_Using      ( XEPL::Cortex* _cortex );
-
-	void Keyword_Modify  ( XEPL::Cortex* _cortex );
-	void Keyword_Print   ( XEPL::Cortex* _cortex );
-	void Keyword_Trigger ( XEPL::Cortex* _cortex );
-
-	void Keyword_ForEach ( XEPL::Cortex* _cortex );
-	void Keyword_IfNo    ( XEPL::Cortex* _cortex );
-	void Keyword_IfYes   ( XEPL::Cortex* _cortex );
-	void Keyword_Repeat  ( XEPL::Cortex* _cortex );
-	void Keyword_Run     ( XEPL::Cortex* _cortex );
-	void Keyword_When    ( XEPL::Cortex* _cortex );
-
-	void Register_Keyword_Kit( XEPL::Cortex* _cortex );
-}
-
-
+#include "xepl_keyword_kit.h"
 
 void KITS::KEYWORDS::Keyword_Axons ( XEPL::Cortex* _cortex )
 {

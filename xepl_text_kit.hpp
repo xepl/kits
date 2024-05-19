@@ -22,24 +22,7 @@
  	https://www.gnu.org/licenses/agpl-3.0.html
 */
 
-namespace KITS::TEXT
-{
-	void Keyword_Text     ( XEPL::Cortex* _cortex );
-	void Register_Text_Kit( XEPL::Cortex* _cortex );
-}
-
-namespace KITS::TEXT
-{
-	class RendonText : public XEPL::Rendon
-	{
-	public: 	
-		explicit RendonText ( XEPL::Neuron* _parent, XEPL::Gene* _config, XEPL::String* _bag );
-		virtual void Rendon_Markup ( XEPL::Gene* _gene, XEPL::Gene* ) override;
-	};
-}
-
-
-
+#include "xepl_text_kit.h"
 
  KITS::TEXT::RendonText::RendonText ( XEPL::Neuron* _parent, XEPL::Gene* _config, XEPL::String* _bag )
 	: Rendon ( _parent, _config, _bag )

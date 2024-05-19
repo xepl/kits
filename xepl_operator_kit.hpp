@@ -22,43 +22,7 @@
  	https://www.gnu.org/licenses/agpl-3.0.html
 */
 
-namespace KITS::OPERATORS
-{
-	void Operator_After     ( XEPL::Cortex* _cortex );
-	void Operator_AfterAny  ( XEPL::Cortex* _cortex );
-	void Operator_AfterLast ( XEPL::Cortex* _cortex );
-	void Operator_Before    ( XEPL::Cortex* _cortex );
-	void Operator_BeforeAny ( XEPL::Cortex* _cortex );
-	void Operator_NextAny   ( XEPL::Cortex* _cortex );
-
-	void Operator_Append ( XEPL::Cortex* _cortex );
-	void Operator_Cr     ( XEPL::Cortex* _cortex );
-	void Operator_CrLf   ( XEPL::Cortex* _cortex );
-	void Operator_Lf     ( XEPL::Cortex* _cortex );
-	void Operator_Period ( XEPL::Cortex* _cortex );
-	void Operator_Slash  ( XEPL::Cortex* _cortex );
-	void Operator_Space  ( XEPL::Cortex* _cortex );
-	void Operator_Tab    ( XEPL::Cortex* _cortex );
-
-	void Operator_Empty ( XEPL::Cortex* _cortex );
-	void Operator_Has   ( XEPL::Cortex* _cortex );
-	void Operator_Is    ( XEPL::Cortex* _cortex );
-
-	void Operator_Add      ( XEPL::Cortex* _cortex );
-	void Operator_Multiply ( XEPL::Cortex* _cortex );
-	void Operator_Subtract ( XEPL::Cortex* _cortex );
- 
-	void Operator_Equal ( XEPL::Cortex* _cortex );
-	void Operator_Gt    ( XEPL::Cortex* _cortex );
-	void Operator_Lt    ( XEPL::Cortex* _cortex );
-
-	void Operator_DeAmp      ( XEPL::Cortex* _cortex );
-	void Operator_Depercent  ( XEPL::Cortex* _cortex );
-	void Operator_Lowercase  ( XEPL::Cortex* _cortex );
-	void Operator_Percentify ( XEPL::Cortex* _cortex );
-
-	void Register_Operator_Kit( XEPL::Cortex* _cortex );
-}
+#include "xepl_operator_kit.h"
 
 void KITS::OPERATORS::Operator_After ( XEPL::Cortex* _cortex )
 {

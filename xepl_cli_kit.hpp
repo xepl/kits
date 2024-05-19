@@ -22,15 +22,7 @@
  	https://www.gnu.org/licenses/agpl-3.0.html
 */
 
-namespace KITS::CLI
-{
-	bool Execute_As_Xml    ( XEPL::Text* _chars );
-	bool Execute_As_Rna    ( XEPL::Text* _chars );
-	bool Execute_From_File ( XEPL::Text* _chars );
-	bool Execute_Command   ( XEPL::Text* _chars );
-
-	bool CliLoop ( std::istream& _input_stream, std::ostream& _output_stream, std::ostream& _error_stream );
-}
+#include "xepl_cli_kit.h"
 
 bool KITS::CLI::Execute_As_Xml ( XEPL::Text* _chars )
 {
